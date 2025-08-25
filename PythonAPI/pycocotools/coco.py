@@ -332,7 +332,7 @@ class COCO:
             res.dataset['images'] = [img for img in res.dataset['images'] if img['id'] in imgIds]
             for id, ann in enumerate(anns):
                 ann['id'] = id+1
-        elif 'bbox' in anns[0] and not anns[0]['bbox'] == []:
+        elif 'bbox' in anns[0] and not (len(anns[0]['bbox']) == 0):
             res.dataset['categories'] = copy.deepcopy(self.dataset['categories'])
             for id, ann in enumerate(anns):
                 bb = ann['bbox']
